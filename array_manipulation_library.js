@@ -60,10 +60,15 @@ const $ = {
             total += initial;
         }
 
+        if ( array.length == 0 ) {
+            return total;
+        }
+
         for (let index = 0; index < array.length; index++) {
             const element = array[index];
-
+            total = callback(total, element);
         }
+        return total;
     },
     head: function () {},
     tail: function () {},
